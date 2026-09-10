@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Responsive Profile Cards</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            padding: 30px;
+            font-family: Arial, sans-serif;
+            background: purple;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 50px;
+            margin-bottom: 40px;
+        }
+
+        .cards {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: white;
+            width: 300px;
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px;
+        }
+
+
+        .profile-photo {
+            width: 190px;
+            height: 190px;
+            border-radius: 50%;
+            border: 5px solid purple;
+            margin-top: 20px;
+        }
+
+        .card h2 {
+            color: purple;
+            font-size: 28px;
+        }
+
+        .stars {
+            color: purple;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            text-align: left;
+            line-height: 1.5;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .buttons a {
+            text-decoration: none;
+            border: 2px solid purple;
+            padding: 12px;
+            flex: 1;
+            color: purple;
+            font-weight: bold;
+        }
+
+        .subscribe {
+            background-color: purple;
+            color: white !important;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <h1>RESPONSIVE PROFILE CARDS</h1>
+
+    <div class="cards">
+
+        <!-- First Card -->
+        <div class="card">
+
+            <img class="profile-photo"
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=420&q=80"
+                alt="David">
+
+            <h2>David Chrish</h2>
+
+            <div class="stars">★★★★☆</div>
+
+            <p>
+                Lorem ipsum dolor sit amet, stephen hawkin so adipisicing elit.
+                Ratione disujq doloremque reiciendi nemo.
+            </p>
+
+            <div class="buttons">
+                <a href="#">Read More</a>
+                <a href="#" class="subscribe">Subscribe</a>
+            </div>
+
+        </div>
+
+
+        <!-- Second Card -->
+        <div class="card">
+
+            <img class="profile-photo"
+                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=420&q=80"
+                alt="Kristina">
+
+            <h2>Kristina Bellis</h2>
+
+            <div class="stars">★★★★☆</div>
+
+            <p>
+                Lorem ipsum dolor sit amet, stephen hawkin so adipisicing elit.
+                Ratione disujq doloremque reiciendi nemo.
+            </p>
+
+            <div class="buttons">
+                <a href="#">Read More</a>
+                <a href="#" class="subscribe">Subscribe</a>
+            </div>
+
+        </div>
+
+
+        <!-- Third Card -->
+        <div class="card">
+
+            <img class="profile-photo"
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=420&q=80"
+                alt="Stephon">
+
+            <h2>Stephon Marlo</h2>
+
+            <div class="stars">★★★★☆</div>
+
+            <p>
+                Lorem ipsum dolor sit amet, stephen hawkin so adipisicing elit.
+                Ratione disujq doloremque reiciendi nemo.
+            </p>
+
+            <div class="buttons">
+                <a href="#">Read More</a>
+                <a href="#" class="subscribe">Subscribe</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

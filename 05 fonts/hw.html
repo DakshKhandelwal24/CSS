@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Testimonial Card</title>
+  <!-- Google Fonts for typography -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome for star icons -->
+  <link rel="stylesheet" href="https://cloudflare.com">
+  
+  <style>
+    :root {
+      --primary-color: #8B4BAE; /* Vibrant purple from the image background */
+      --card-bg: #ffffff;
+      --text-dark: #2c3e50;
+      --text-muted: #7f8c8d;
+      --border-color: #dcdde1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--primary-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+      width: 340px;
+      padding: 30px 24px;
+      text-align: center;
+    }
+
+    .avatar-container {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      margin: 0 auto 20px auto;
+    }
+
+    /* Outer purple ring gradient border */
+    .avatar-container::before {
+      content: '';
+      position: absolute;
+      top: -4px;
+      left: -4px;
+      right: -4px;
+      bottom: -4px;
+      border: 3px solid var(--primary-color);
+      border-radius: 50%;
+      opacity: 0.6;
+    }
+
+    .avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--card-bg);
+      position: relative;
+      z-index: 1;
+    }
+
+    .user-name {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+
+    .rating {
+      margin-bottom: 18px;
+    }
+
+    .rating .fa-star {
+      font-size: 1.1rem;
+      margin: 0 1px;
+    }
+
+    .rating .filled {
+      color: var(--primary-color);
+    }
+
+    .rating .empty {
+      color: var(--border-color);
+    }
+
+    .description {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+      margin-bottom: 26px;
+      padding: 0 6px;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn {
+      flex: 1;
+      padding: 11px 0;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    .btn-outline {
+      background-color: transparent;
+      border: 1.5px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+    }
+
+    .btn-filled {
+      background-color: var(--primary-color);
+      border: 1.5px solid var(--primary-color);
+      color: #ffffff;
+    }
+
+    .btn-filled:hover {
+      background-color: #7d3c98;
+      border-color: #7d3c98;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <div class="avatar-container">
+      <!-- Placeholder portrait image matching the style -->
+      <img class="avatar" src="https://unsplash.com" alt="David Chrish">
+    </div>
+    
+    <h2 class="user-name">David Chrish</h2>
+    
+    <div class="rating">
+      <sidebar class="fa-solid fa-star filled"></sidebar>
+      <sidebar class="fa-solid fa-star filled"></sidebar>
+      <sidebar class="fa-regular fa-star empty"></sidebar>
+      <sidebar class="fa-regular fa-star empty"></sidebar>
+      <sidebar class="fa-regular fa-star empty"></sidebar>
+    </div>
+    
+    <p class="description">
+      Lorem ipsum dolor sitamet, stphen hawkin so adipisicing elit. Ratione disuja doloremque reiciendi nemo.
+    </p>
+    
+    <div class="actions">
+      <button class="btn btn-outline">Read More</button>
+      <button class="btn btn-filled">Subscribe</button>
+    </div>
+  </div>
+
+</body>
+</html>
