@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Furniture Home - Embrace Peaceful Oasis</title>
+  <!-- Google Fonts: Playfair Display for headings, Inter for body text -->
+  <link rel="preconnect" href="https://googleapis.com">
+  <link rel="preconnect" href="https://gstatic.com" crossorigin>
+  <link href="https://googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  
+  <style>
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #fcfcfc;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+
+    /* Header & Navigation Styling */
+    header {
+      width: 100%;
+      padding: 20px 40px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(10px);
+      padding: 15px 30px;
+      border-radius: 50px;
+      border: 1px solid rgba(220, 220, 220, 0.5);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 30px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #000;
+    }
+
+    /* Central Logo Icon Placeholders */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      border: 2px solid #1a1a1a;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Simple structural armchair vector representation */
+    .logo-icon::before {
+      content: '';
+      width: 24px;
+      height: 14px;
+      border: 2px solid #1a1a1a;
+      border-top: none;
+      position: absolute;
+      bottom: 8px;
+      border-radius: 0 0 4px 4px;
+    }
+
+    .logo-icon::after {
+      content: '';
+      width: 14px;
+      height: 10px;
+      border: 2px solid #1a1a1a;
+      position: absolute;
+      top: 10px;
+      border-radius: 2px;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+
+    .nav-right a {
+      text-decoration: none;
+      color: #555;
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .search-icon {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+
+    .profile-avatar {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: #ffd166;
+      background-image: radial-gradient(circle, #ffb703 40%, #fb8500 100%);
+      cursor: pointer;
+    }
+
+    /* Hero Section Structure */
+    .hero {
+      display: flex;
+      min-height: 100vh;
+      width: 100%;
+      padding-top: 0;
+    }
+
+    /* Left Content Panel */
+    .hero-left {
+      flex: 1;
+      background-color: #e3f2fd; /* Light peaceful blue/teal base fallback */
+      background: linear-gradient(135deg, #edf7f6 0%, #d8eceb 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 0 10% 0 12%;
+      position: relative;
+    }
+
+    /* Subtle decorative background palm leaf overlay */
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 80%;
+      height: 70%;
+      background-image: url('https://unsplash.com'); 
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      opacity: 0.12;
+      mix-blend-mode: multiply;
+      pointer-events: none;
+    }
+
+    .sub-tag {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 4.5rem;
+      font-weight: 400;
+      line-height: 1.15;
+      color: #1c2d2a;
+      margin-bottom: 40px;
+      max-width: 500px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: #1a1a1a;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 14px 28px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      width: fit-content;
+
+    .hero-right {
+      flex: 1;
+      background-color: #c9dfdd;
+      background: linear-gradient(135deg, #d3e7e5 0%, #b8d5d2 100%);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .scene-container {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+    .showcase-chair {
+      position: absolute;
+      top: 15%;
+      right: 20%;
+      width: 320px;
+      height: 400px;
+      z-index: 2;
+
+
+    /* Marble Table Showcase Surface */
+    .showcase-table {
+      position: absolute;
+      bottom: -150px;
+      right: -50px;
+      width: 550px;
+      height: 550px;
+      background: radial-gradient(circle, #ffffff 0%, #e0e0e0 100%);
+      border-radius: 50%;
+      box-shadow: -20px -20px 50px rgba(0,0,0,0.1), 
+                  25px 35px 45px rgba(28, 45, 42, 0.2);
+      z-index: 3;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding-top: 60px;
+    }
+
+    /* Realistic Organic Marble Texture Emulation Overlay */
+    .showcase-table::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background-image: url('https://transparenttextures.com');
+      opacity: 0.4;
+      mix-blend-mode: multiply;
+    }
+
+    /* Tabletop arrangement components */
+    .table-setting {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      background-color: #1a332e;
+      border-radius: 50%;
+      box-shadow: inset 2px 2px 10px rgba(0,0,0,0.4), 8px 12px 20px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .table-fork {
+      color: #d4af37;
+      font-size: 1.5rem;
+      transform: rotate(45deg);
+    }
+
+    .table-cup {
+      position: absolute;
+      bottom: -40px;
+      left: -30px;
+      width: 55px;
+      height: 55px;
+      background: linear-gradient(135deg, #e5a93b 0%, #c18414 100%);
+      border-radius: 50%;
+      box-shadow: 5px 8px 12px rgba(0,0,0,0.15);
+    }
+
+    /* Responsive Breakdown adjustments */
+    @media (max-width: 1024px) {
+      .hero {
+        flex-direction: column;
+      }
+      .hero-left {
+        padding: 160px 40px 80px 40px;
+      }
+      .hero-right {
+        min-height: 500px;
+      }
+      .hero-title {
+        font-size: 3.2rem;
+      }
+      .showcase-chair {
+        width: 260px;
+        height: 320px;
+        top: 10%;
+        right: 15%;
+      }
+      .showcase-table {
+        width: 400px;
+        height: 400px;
+        bottom: -100px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Global Header Bar Configuration -->
+  <header>
+    <nav class="nav-container">
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#cart">Cart</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      
+      <div class="logo-container">
+        <div class="logo-icon" title="Furniture Home Center Brand Logo"></div>
+      </div>
+      
+      <div class="nav-right">
+        <a href="#shops">Shops</a>
+        <a href="#account">Account</a>
+        <div class="search-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </div>
+        <div class="profile-avatar"></div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Complete Hero Layout Structure -->
+  <main class="hero">
+    <!-- Informational Brand Callout Column -->
+    <section class="hero-left">
+      <p class="sub-tag">Furniture Home</p>
+      <h1 class="hero-title">Embrace Peaceful Oasis</h1>
+      <a href="#shop" class="cta-btn">
+        Shop Now
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="7" y1="17" x2="17" y2="7"></line>
+          <polyline points="7 7 17 7 17 17"></polyline>
+        </svg>
+      </a>
+    </section>
+
+
+    <section class="hero-right">
+      <div class="scene-container">
+        <img class="showcase-chair" src="https://unsplash.com" alt="Tropical Monstera Pattern Accent Chair">
+        
