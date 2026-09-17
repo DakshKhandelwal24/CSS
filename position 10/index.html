@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            height: 300px;
+            width: 200px;
+        }
+        .one{
+            background-color: yellowgreen;
+            position:relative ;
+            top: 50px;
+            left: 50px;
+        }
+        .two{
+            background-color: aqua;
+        }
+        .three{
+            background-color: blueviolet;
+        }
+        .child-to-cont{
+            height: 100px;
+            width: 100px;
+            background-color: hotpink;
+            position: absolute;
+            bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container one">
+
+    </div>
+
+    <div class="container two">
+        <div class="child-to-cont"></div>
+    
+    </div>
+
+    <div class="container three">
+
+    </div>
+
+</body>
+</html>
