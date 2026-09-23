@@ -5,20 +5,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        .container > img{
-            display: flex;
+        .container img{
+            display: none;
+            height: 200px;
+            width: 200px;
         }
+
         .container{
             height: 200px;
             width: 200px;
-            border: 10px solid black;
+            border:3px solid black
         }
-        
+
+        .container > img{
+            display: none;
+        }
+
+        .container:hover > img{
+            display: block;
+        }
+
+        .input:focus {
+        outline: 2px solid blue;
+        }
+
+        .submit:focus {
+        box-shadow: 0 0 5px rgba(0, 0, 255, 0.5);
+        }
+
     </style>
 </head>
 <body>
+
     <div class="container">
-        <img src=https://stock.adobe.com/search?k=%22beautiful+flowers%22 alt="image of elephant">
+        <img src="newimage.jpg" alt="Image">
     </div>
+
+    <input type="text" class="input" placeholder="Enter text">
+    
+    <button class="submit">Submit</button>
 </body>
 </html>

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travel - Must See Places</title>
+<style>
+  /* CSS Variables for Colors and Fonts */
+  :root {
+    --bg-cyan: #00bcd4;
+    --text-dark: #11143a;
+    --text-gray: #7a7a8c;
+    --accent-pink: #ff005a;
+    --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--bg-cyan);
+    font-family: var(--font-main);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 40px;
+  }
+
+  /* Main White Container */
+  .app-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 1300px;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Top Navigation / Header */
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+  }
+
+  .logo {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: var(--text-dark);
+  }
+
+  .logo span {
+    color: var(--accent-pink);
+  }
+
+  .header-center {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--text-gray);
+    text-transform: uppercase;
+  }
+
+  .header-right {
+    display: flex;
+    gap: 30px;
+  }
+
+  .header-right a {
+    text-decoration: none;
+    color: var(--text-gray);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* Main Body Section */
+  main {
+    display: flex;
+    padding: 10px 50px;
+    gap: 40px;
+    flex: 1;
+  }
+
+  /* Left Side - Typography & Button */
+  .content-left {
+    flex: 0 0 32%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+
+  h1 {
+    font-size: 5rem;
+    line-height: 1.05;
+    color: var(--text-dark);
+    margin-bottom: 25px;
+    letter-spacing: -2px;
+  }
+
+  .description {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    max-width: 90%;
+  }
+
+  .btn-explore {
+    background-color: var(--accent-pink);
+    color: #fff;
+    border: none;
+    padding: 16px 45px;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-explore:hover {
+    background-color: #d1004a;
+  }
+
+  /* Right Side - Image Cards */
+  .content-right {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    align-items: stretch;
+  }
+
+  .card {
+    flex: 1;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 450px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  }
+
+  .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 40px 20px 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0) 100%);
+    color: white;
+  }
+
+  .card h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    letter-spacing: 0.5px;
+  }
+
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+
+  .pin {
+    color: var(--accent-pink);
+    font-size: 0.85rem;
+  }
+
+  /* Bottom Navigation / Footer */
+  footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 50px;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 25px;
+    color: var(--text-gray);
+    font-size: 1.1rem;
+  }
+  
+  .social-icons i {
+    cursor: pointer;
+    transition: color 0.2s ease;
+  }
+  
+  .social-icons i:hover {
+    color: var(--text-dark);
+  }
+
+  .footer-center {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    color: var(--text-gray);
+    text-transform: uppercase;
+  }
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .pagination {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-gray);
+    letter-spacing: 2px;
+  }
+  
+  .pagination span {
+    color: var(--text-dark);
+  }
+
+  .arrows {
+    display: flex;
+    gap: 12px;
+  }
+
+  .arrow-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid #e0e0e0;
+    background: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--text-dark);
+    font-size: 1rem;
+    transition: background 0.3s ease;
+  }
+  
+  .arrow-btn:hover {
+    background: #f5f5f5;
+  }
+  
+  /* Responsive Design adjustments */
+  @media (max-width: 1024px) {
+    main {
+      flex-direction: column;
+    }
+    .content-left {
+      align-items: center;
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    .content-right {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+    footer {
+        flex-direction: column;
+        gap: 20px;
+    }
+  }
+</style>
+<!-- Include FontAwesome for icons (Pins, Socials, Arrows) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="app-container">
+  
+  <!-- Header section -->
+  <header>
+    <div class="logo">travel<span>.</span></div>
+    <div class="header-center">Daksh HTML & CSS workshop</div>
+    <div class="header-right">
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </div>
+  </header>
+
+  <!-- Main section -->
+  <main>
+    <!-- Left column: Header text and button -->
+    <div class="content-left">
+      <h1>Must see<br>Places</h1>
+      <p class="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin elementum metus eu enim rhoncus posuere.</p>
+      <button class="btn-explore">Explore</button>
+    </div>
+
+    <!-- Right column: Slider cards -->
+    <div class="content-right">
+      <!-- Card 1 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1507608616759-54f48f0af0ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Cappadocia, Turkey">
+        <div class="card-overlay">
+          <h3>Cappadocia</h3>
+          <div class="location"><i class="fa-solid fa-location-dot pin"></i> TURKEY</div>
+        </div>
+      </div>
+      
+      <!-- Card 2 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Santorini, Greece">
+        <div class="card-overlay">
+          <h3>Santorini</h3>
+          <div class="location"><i class="fa-solid fa-location-dot pin"></i> GREECE</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1537996192771-8b284e90875e?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Bali, Indonesia">
+        <div class="card-overlay">
+          <h3>Bali</h3>
+          <div class="location"><i class="fa-solid fa-location-dot pin"></i> INDONESIA</div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer section -->
+  <footer>
+    <div class="social-icons">
+      <i class="fa-brands fa-facebook-f"></i>
+      <i class="fa-brands fa-youtube"></i>
+      <i class="fa-brands fa-instagram"></i>
+    </div>
+    
+    <div class="footer-center">Unique Destinations</div>
+    
+    <div class="controls">
+      <div class="pagination"><span>01</span> / 03</div>
+      <div class="arrows">
+        <button class="arrow-btn"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="arrow-btn"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </footer>
+  
+</div>
+
+</body>
+</html>
