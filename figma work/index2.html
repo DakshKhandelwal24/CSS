@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus Event Hub 🎓</title>
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            --bg-color: #0a0a0a;
+            --surface-color: #141414;
+            --surface-hover: #1f1f1f;
+            --text-primary: #ffffff;
+            --text-secondary: #a1a1aa;
+            --accent-color: #3b82f6; /* Blue */
+            --accent-hover: #2563eb;
+            --border-color: #27272a;
+            --radius-lg: 16px;
+            --radius-md: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- Animations --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+
+        .animate-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        /* --- Navigation --- */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            text-align: center;
+            padding: 4rem 5% 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #fff, #a1a1aa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* --- Search & Filter Bar --- */
+        .controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            padding: 0 5%;
+            margin-bottom: 3rem;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: 1px solid var(--border-color);
+            background: var(--surface-color);
+            color: var(--text-primary);
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            padding: 8px 16px;
+            border-radius: 20px;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .tag:hover, .tag.active {
+            background: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        /* --- Event Grid --- */
+        .events-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 0 5% 5rem;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            background: var(--surface-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-color);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .event-img {
+            height: 180px;
+            background: linear-gradient(45deg, #1f1f1f, #2d2d2d);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+
+        .event-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+
+        .event-content {
+            padding: 1.5rem;
+            flex: 1;
+        }
+
+        .event-date {
+            color: var(--accent-color);
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .event-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .event-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .event-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .btn-register {
+            background: transparent;
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 6px 12px;
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .event-card:hover .btn-register {
+            background: var(--accent-color);
+            color: white;
+        }
+
+        /* --- Modal (Event Detail) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .modal-content {
+            background: var(--surface-color);
+            width: 90%;
+            max-width: 600px;
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            position: relative;
+            border: 1px solid var(--border-color);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1);
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .modal-header {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 1rem;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: var(--radius-md);
+            font-weight: bold;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Simple mobile hide for demo */
+            .hero h1 { font-size: 2rem; }
+            .controls { flex-direction: column; align-items: stretch; }
+            .search-box { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="#" class="logo">
+            <span>🎓</span> CampusHub
+        </a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Events</a>
+            <a href="#">Clubs</a>
+            <a href="#">Profile</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero animate-in">
+        <h1>Discover Your Campus Life</h1>
+        <p>Never miss a festival, workshop, or club meeting again. All events, one place.</p>
+    </header>
+
+    <!-- Search & Filters -->
+    <section class="controls animate-in" style="animation-delay: 0.1s;">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search events, clubs, or topics...">
+        </div>
+        <div class="filter-tags">
+            <div class="tag active" data-filter="all">All</div>
+            <div class="tag" data-filter="tech">Tech</div>
+            <div class="tag" data-filter="art">Art & Culture</div>
+            <div class="tag" data-filter="sports">Sports</div>
+            <div class="tag" data-filter="workshop">Workshops</div>
+        </div>
+    </section>
+
+    <!-- Event Grid -->
+    <main class="events-container" id="eventGrid">
+        <!-- Events will be injected here by JS -->
+    </main>
+
+    <!-- Event Detail Modal -->
+    <div class="modal-overlay" id="eventModal">
+        <div class="modal-content">
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            <div class="modal-header">
+                <span class="event-date" id="modalDate">Oct 12, 2026</span>
+                <h2 class="modal-title" id="modalTitle">Event Title</h2>
+                <p id="modalDesc" style="color: var(--text-secondary);">Event description goes here.</p>
+            </div>
+            
+            <h3 style="margin-bottom: 1rem;">Register for this Event</h3>
+            <form id="registrationForm" onsubmit="handleRegistration(event)">
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>Student ID / Email</label>
+                    <input type="text" placeholder="student@campus.edu" required>
+                </div>
+                <div class="form-group">
+                    <label>Department</label>
+                    <select required>
+                        <option value="">Select Department</option>
+                        <option value="cs">Computer Science</option>
+                        <option value="eng">Engineering</option>
+                        <option value="arts">Arts & Humanities</option>
+                        <option value="biz">Business</option>
+                    </select>
+                </div>
+                <button type="submit" class="submit-btn">Confirm Registration</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Mock Data
+        const events = [
+            {
+                id: 1,
+                title: "AI & Machine Learning Workshop",
+                date: "Oct 15, 2026",
+                category: "tech",
+                club: "CS Club",
+                desc: "Hands-on session on building neural networks using Python and TensorFlow.",
+                icon: "🤖",
+                spots: "50"
+            },
+            {
+                id: 2,
+                title: "Spring Art Exhibition",
+                date: "Nov 02, 2026",
+                category: "art",
+                club: "Fine Arts Society",
+                desc: "Showcasing student paintings, sculptures, and digital art installations.",
+                icon: "🎨",
+                spots: "Unlimited"
+            },
+            {
+                id: 3,
+                title: "Inter-College Football Tournament",
+                date: "Sep 28, 2026",
+                category: "sports",
+                club: "Athletics Dept",
+                desc: "Cheer on your team as we compete against neighboring universities.",
+                icon: "⚽",
+                spots: "Spectators"
+            },
+            {
+                id: 4,
+                title: "Public Speaking Club Meetup",
+                date: "Oct 05, 2026",
+                category: "workshop",
+                club: "Toastmasters",
+                desc: "Improve your communication skills with weekly practice sessions.",
+                icon: "🎤",
+                spots: "20"
+            },
+            {
+                id: 5,
+                title: "Hackathon 2026: Green Tech",
+                date: "Nov 10-12, 2026",
+                category: "tech",
+                club: "Innovation Lab",
+                desc: "48-hour coding marathon to build solutions for sustainability.",
+                icon: "💻",
+                spots: "100"
+            },
+            {
+                id: 6,
+                title: "Photography Walk & Contest",
+                date: "Oct 22, 2026",
+                category: "art",
+                club: "Photo Club",
+                desc: "Explore the city's hidden gems and submit your best shots.",
+                icon: "📸",
+                spots: "30"
+            }
+        ];
+
+        const grid = document.getElementById('eventGrid');
+        const searchInput = document.getElementById('searchInput');
+        const filterTags = document.querySelectorAll('.tag');
+        const modal = document.getElementById('eventModal');
+
+        // Render Events
+        function renderEvents(data) {
+            grid.innerHTML = '';
+            if (data.length === 0) {
+                grid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-secondary);">No events found.</p>';
+                return;
+            }
+
+            data.forEach((event, index) => {
+                const card = document.createElement('div');
+                card.className = 'event-card animate-in';
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.onclick = () => openModal(event);
+
+                card.innerHTML = `
+                    <div class="event-img">
+                        ${event.icon}
+                        <span class="event-badge">${event.category.toUpperCase()}</span>
+                    </div>
+                    <div class="event-content">
+                        <span class="event-date">${event.date}</span>
+                        <h3 class="event-title">${event.title}</h3>
+                        <p class="event-desc">${event.desc}</p>
+                        <div class="event-meta">
+                            <span>📍 ${event.club}</span>
+                            <button class="btn-register">Details</button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // Filter Logic
+        function filterEvents() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const activeFilter = document.querySelector('.tag.active').dataset.filter;
+
+            const filtered = events.filter(event => {
+                const matchesSearch = event.title.toLowerCase().includes(searchTerm) || 
+                                      event.desc.toLowerCase().includes(searchTerm) ||
+                                      event.club.toLowerCase().includes(searchTerm);
+                
+                const matchesCategory = activeFilter === 'all' || event.category === activeFilter;
+
+                return matchesSearch && matchesCategory;
+            });
+
+            renderEvents(filtered);
+        }
+
+        // Event Listeners for Filters
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                filterTags.forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+                filterEvents();
+            });
+        });
+
+        searchInput.addEventListener('input', filterEvents);
+
+        // Modal Logic
+        function openModal(event) {
+            document.getElementById('modalTitle').innerText = event.title;
+            document.getElementById('modalDate').innerText = event.date;
+            document.getElementById('modalDesc').innerText = event.desc;
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden'; // Prevent background scroll
+        }
+
+        function closeModal() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+
+        // Form Submission Mock
+        function handleRegistration(e) {
+            e.preventDefault();
+            alert("Registration Successful! Check your email for confirmation.");
+            closeModal();
+            e.target.reset();
+        }
+
+        // Initial Render
+        renderEvents(events);
+
+    </script>
+</body>
+</html>
