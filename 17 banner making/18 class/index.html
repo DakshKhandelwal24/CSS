@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .navabar {
+            border: 2px solid red;
+            height: 100px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 20%;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navabar ul {
+            list-style-type: none;
+            font-size: 26px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 70px;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .navabar li a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .navabar div {
+            font-size: 60px;
+        }
+
+        .button {
+            display: flex;
+            gap: 50px
+        }
+
+        .button button {
+            height: 50px;
+            width: 100px;
+            background-color: black;
+            color: white;
+            border-radius: 50px;
+            font-size: 17px;
+        }
+
+        .vbar {
+            height: 80vh;
+            width: 175vh;
+            border: 2px solid black;
+            display: flex;
+        }
+
+        aside {
+            border: 1px solid tr;
+            width: 20%;
+            height: inherit;
+            background-color: black;
+
+        }
+
+        .mini2 {
+            border: 2px solid transparent;
+            height: 80vh;
+            width: 80%;
+            font-size: 40px;
+            overflow: auto;
+            background-color: greenyellow;
+        }
+
+        aside ul {
+            list-style-type: none;
+            margin-top: 80px;
+            display: flex;
+            flex-direction: column;
+            row-gap: 60px
+        }
+
+        aside a {
+            text-decoration: none;
+            color: white;
+            font-size: 80px;
+            font-family: Brush Script MT;
+        }
+
+        .mini2::selection {
+            background-color: rgba(27, 27, 191, 0.541);
+        }
+
+        aside a:hover {
+            font-size: 100px;
+        }
+
+        .dropdown-about {
+            padding: 50px;
+            width: 160px;
+            position: absolute;
+            top: 65px;
+            background-color: rgb(231, 222, 222);
+            box-shadow: 1px 1px 10px black;
+            
+        }
+
+        .dropdown-about ul {
+            display: flex;
+            flex-direction: column;
+            width: inherit;
+        }
+
+        .home {
+            position: relative;
+        }
+        .home:hover>div{
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navabar">
+        <div>.Caffeine</div>
+        <ul>
+            <li><a href="d">Home</a></li>
+
+            <li><a href="d">Services</a></li>
+            <br>
+            <li class="home"><a href="d">About us</a>
+                <div class="dropdown-about">
+                    <ul>
+                        <li>About buisness</li>
+                        <li>About journey</li>
+                        <li>About jobs</li>
+                    </ul>
+                </div>
+
+            </li>
+            <br>
+            <li><a href="d">Contacts</a></li>
+            <br>
+
+        </ul>
+        <div class="button">
+            <button>Login</button>
+            <button>Order Now</button>
+        </div>
+    </nav>
+    <br>
+    <div class="vbar">
+
+        <aside>
+                <ul>
+                    <li><a href="D">Login</a></li>
+                    <li><a href="D">About</a></li>
+                    <li><a href="D">Home</a></li>
+                    <li><a href="D">Contacts</a></li>
+                    <li><a href="D">Services</a></li>
+                </ul>
+        </aside>
+        <div class="mini2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat cumque amet, facilis dicta voluptas corrupti ab excepturi molestias quod magni aperiam delectus provident tempore atque dolorum a quasi perferendis iste!</div>
+    </div>
+</body>
+
+</html>

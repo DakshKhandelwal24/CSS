@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Myntra Mega Menu Clone</title>
+  <style>
+    /* Reset and Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Whitney, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f5f5f6;
+    }
+
+    /* Navbar Container */
+    .navbar {
+      background-color: #ffffff;
+      box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05);
+      height: 80px;
+      display: flex;
+      align-items: center;
+      padding: 0 50px;
+      position: relative;
+    }
+
+    /* Navigation Links */
+    .nav-links {
+      display: flex;
+      list-style: none;
+      height: 100%;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      padding: 0 17px;
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      color: #282c3f;
+      cursor: pointer;
+      border-bottom: 4px solid transparent;
+      transition: border-bottom 0.1s ease;
+    }
+
+    /* Category Specific Colors on Hover (Simulating Myntra) */
+    .nav-item:hover {
+      border-bottom: 4px solid #f54e77;
+    }
+
+    /* Mega Menu Dropdown Container */
+    .mega-menu {
+      position: absolute;
+      top: 80px;
+      left: 0;
+      width: 100%;
+      background-color: #ffffff;
+      box-shadow: 0 20px 20px 0 rgba(0,0,0,0.05);
+      border-top: 1px solid #f5f5f6;
+      display: none;
+      justify-content: flex-start;
+      padding: 30px 0 40px 70px;
+      z-index: 1000;
+    }
+
+    /* Show menu on hover */
+    .nav-links li:hover .mega-menu {
+      display: flex;
+    }
+
+    /* Menu Column Layout */
+    .menu-column {
+      flex: 0 1 210px;
+      padding-right: 20px;
+    }
+
+    /* Alternating Background Shading */
+    .menu-column:nth-child(even) {
+      background-color: #fbfbfb;
+      padding-left: 15px;
+    }
+
+    /* Section Sub-Groups inside a column */
+    .menu-section {
+      margin-bottom: 25px;
+    }
+
+    /* Group Heading */
+    .menu-heading {
+      font-size: 14px;
+      font-weight: 700;
+      color: #ee5f73;
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
+
+    /* Group Heading with specific treatment (e.g. Plus Size) */
+    .menu-heading.single-link {
+      border-top: 1px solid #eaeaec;
+      padding-top: 15px;
+    }
+
+    /* List Items */
+    .menu-list {
+      list-style: none;
+    }
+
+    .menu-list li {
+      margin-bottom: 8px;
+    }
+
+    .menu-list a {
+      text-decoration: none;
+      color: #3e4152;
+      font-size: 14px;
+      font-weight: 400;
+      transition: color 0.1s ease;
+    }
+
+    .menu-list a:hover {
+      font-weight: 700;
+      color: #282c3f;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <ul class="nav-links">
+      <li>
+        <span class="nav-item">Men</span>
+        
+        <!-- Mega Menu Panel Start -->
+        <div class="mega-menu">
+          
+          <!-- Column 1 -->
+          <div class="menu-column">
+            <div class="menu-section">
+              <div class="menu-heading">Topwear</div>
+              <ul class="menu-list">
+                <li><a href="#">T-Shirts</a></li>
+                <li><a href="#">Casual Shirts</a></li>
+                <li><a href="#">Formal Shirts</a></li>
+                <li><a href="#">Sweatshirts</a></li>
+                <li><a href="#">Sweaters</a></li>
+                <li><a href="#">Jackets</a></li>
+                <li><a href="#">Blazers & Coats</a></li>
+                <li><a href="#">Suits</a></li>
+                <li><a href="#">Rain Jackets</a></li>
+              </ul>
+            </div>
+            <div class="menu-section">
+              <div class="menu-heading">Indian & Festive Wear</div>
+              <ul class="menu-list">
+                <li><a href="#">Kurtas & Kurta Sets</a></li>
+                <li><a href="#">Sherwanis</a></li>
+                <li><a href="#">Nehru Jackets</a></li>
+                <li><a href="#">Dhotis</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="menu-column">
+            <div class="menu-section">
+              <div class="menu-heading">Bottomwear</div>
+              <ul class="menu-list">
+                <li><a href="#">Jeans</a></li>
+                <li><a href="#">Casual Trousers</a></li>
+                <li><a href="#">Formal Trousers</a></li>
+                <li><a href="#">Shorts</a></li>
+                <li><a href="#">Track Pants & Joggers</a></li>
+              </ul>
+            </div>
+            <div class="menu-section">
+              <div class="menu-heading">Innerwear & Sleepwear</div>
+              <ul class="menu-list">
+                <li><a href="#">Briefs & Trunks</a></li>
+                <li><a href="#">Boxers</a></li>
+                <li><a href="#">Vests</a></li>
+                <li><a href="#">Sleepwear & Loungewear</a></li>
+                <li><a href="#">Thermals</a></li>
+              </ul>
+            </div>
+            <div class="menu-section">
+              <div class="menu-heading single-link">Plus Size</div>
+            </div>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="menu-column">
+            <div class="menu-section">
+              <div class="menu-heading">Footwear</div>
+              <ul class="menu-list">
+                <li><a href="#">Casual Shoes</a></li>
+                <li><a href="#">Sports Shoes</a></li>
+                <li><a href="#">Formal Shoes</a></li>
+                <li><a href="#">Sneakers</a></li>
+                <li><a href="#">Sandals & Floaters</a></li>
+                <li><a href="#">Flip Flops</a></li>
+                <li><a href="#">Socks</a></li>
+              </ul>
+            </div>
+            <div class="menu-section">
+              <div class="menu-heading">Personal Care & Grooming</div>
+            </div>
+            <div class="menu-section">
+              <div class="menu-heading">Sunglasses & Frames</div>
+            </div>
+            <div class="menu-section">
+              <div class="menu-heading">Watches</div>
+            </div>
+          </div>
+
+          <!-- Column 4 -->
+          <div class="menu-column">
+            <div class="menu-section">
+              <div class="menu-heading">Sports & Active Wear</div>
+              <ul class="menu-list">
+                <li><a href="#">Sports Shoes</a></li>
+                <li><a href="#">Sports Sandals</a></li>
+                <li><a href="#">Active T-Shirts</a></li>
+                <li><a href="#">Track Pants & Shorts</a></li>
+                <li><a href="#">Tracksuits</a></li>
+                <li><a href="#">Jackets & Sweatshirts</a></li>
+                <li><a href="#">Sports Accessories</a></li>
+                <li><a href="#">Swimwear</a></li>
+              </ul>
+            </div>
+            <div class="menu-section">
+              <div class="menu-heading">Gadgets</div>
+              <ul class="menu-list">
+                <li><a href="#">Smart Wearables</a></li>
+                <li><a href="#">Fitness Gadgets</a></li>
+                <li><a href="#">Headphones</a></li>
+                <li><a href="#">Speakers</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Column 5 -->
+          <div class="menu-column">
+            <div class="menu-section">
+              <div class="menu-heading">Fashion Accessories</div>
+              <ul class="menu-list">
+                <li><a href="#">Wallets</a></li>
+                <li><a href="#">Belts</a></li>
+                <li><a href="#">Perfumes & Body Mists</a></li>
+                <li><a href="#">Trimmers</a></li>
+                <li><a href="#">Deodorants</a></li>
+                <li><a href="#">Ties, Cufflinks & Pocket Squares</a></li>
+                <li><a href="#">Accessory Gift Sets</a></li>
+                <li><a href="#">Caps & Hats</a></li>
+                <li><a href="#">Mufflers, Scarves & Gloves</a></li>
+                <li><a href="#">Phone Cases</a></li>
+                <li><a href="#">Rings & Wristwear</a></li>
+                <li><a href="#">Helmets</a></li>
+              </ul>
+            </div>
+            <div class="menu-section">
+              <div class="menu-heading">Bags & Backpacks</div>
+            </div>
+            <div class="menu-section">
+              <div class="menu-heading">Luggages & Trolleys</div>
+            </div>
+          </div>
+
+        </div>
+        <!-- Mega Menu Panel End -->
+      </li>
+      <li><span class="nav-item">Women</span></li>
+      <li><span class="nav-item">Kids</span></li>
+      <li><span class="nav-item">Home & Living</span></li>
+      <li><span class="nav-item">Beauty</span></li>
+    </ul>
+  </nav>
+
+</body>
+</html>

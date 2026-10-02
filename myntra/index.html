@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Myntra</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        nav {
+            /* border: 2px solid rgb(6, 58, 73); */
+            width: inherit;
+            height: 50px;
+            display: flex;
+            gap: 3%;
+            align-items: center;
+            padding: 10px;
+            box-shadow: 0px 3px 7px -4px black;
+        }
+
+        .select ul {
+            /* border: 2px solid gray; */
+            display: flex;
+            gap: 40px;
+            list-style-type: none;
+
+        }
+
+        .select ul li a {
+            text-decoration: none;
+            color: black;
+            font-weight: 600;
+
+        }
+
+        .sup {
+            color: red;
+            font-weight: 600;
+            text-shadow: 2px 2px 4px red;
+        }
+
+        .search input {
+            height: 35px;
+            width: 300px;
+            background-color: #F5F5F6;
+            margin: auto;
+            padding-left: 10px;
+            border-radius: 10px;
+            border: none;
+            border-top-left-radius: 2px;
+            border-bottom-left-radius: 2px;
+            outline: none;
+
+
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+
+        }
+
+        .last {
+            /* border: 2px solid red; */
+            height: 40px;
+            width: 300px;
+            display: flex;
+            gap: 20px;
+
+        }
+
+        .profile {
+            /* border: 2px solid blue; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .wishlist {
+            /* border: 2px solid blue; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .bag {
+            /* border: 2px solid blue; */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dropdown {
+            border: 2px solid rgba(0, 0, 0, 0.055);
+            height: 510px;
+            width: 1200px;
+            position: absolute;
+            top: 60px;
+            display: flex;
+            display: none;
+            box-shadow: 0px 4px 5px -7px orangered;
+            border-radius: 5px;
+
+
+
+
+        }
+
+        .men {
+            position: relative;
+            
+
+        }
+        .men:hover>div{
+            display: inline-flex;
+            
+            
+        }
+
+        .column1 {
+            /* border: 2px solid blueviolet; */
+            width: 240px;
+
+        }
+        .column1 ul {
+            display: flex;
+            flex-direction: column;
+            row-gap: 13px;
+            padding: 20px;
+            
+        }
+        .column1 ul li {
+            font-size:12px;
+            font-weight: 500;
+        }
+        .column1 ul li:first-child{
+            color: orangered;
+            font-size: 16px;
+        }
+
+
+        .columns:nth-child(2n+1) {
+            background-color: #F5F5F6;
+
+
+        } 
+        .column2 {
+            /* border: 2px solid blueviolet; */
+            width: 240px;
+
+        }
+        .column2 ul {
+            display: flex;
+            flex-direction: column;
+            row-gap: 13px;
+            padding: 20px;
+            
+        }
+        .column2 ul li {
+            font-size:12px;
+            font-weight: 500;
+        }
+        .column2 ul li:first-child{
+            color: orangered;
+            font-size: 16px;
+        }
+                 
+        .column3 {
+            /* border: 2px solid blueviolet; */
+            width: 240px;
+
+        }
+        .column3 ul {
+            display: flex;
+            flex-direction: column;
+            row-gap: 13px;
+            padding: 20px;
+            
+        }
+        .column3 ul li {
+            font-size:12px;
+            font-weight: 500;
+        }
+        .column3 ul li:first-child{
+            color: orangered;
+            font-size: 16px;
+        }
+        .column4 {
+            /* border: 2px solid blueviolet; */
+            width: 240px;
+
+        }
+        .column4 ul {
+            display: flex;
+            flex-direction: column;
+            row-gap: 13px;
+            padding: 20px;
+            
+        }
+        .column4 ul li {
+            font-size:12px;
+            font-weight: 500;
+        }
+        .column4 ul li:first-child{
+            color: orangered;
+            font-size: 16px;
+        }
+        .column5 {
+            /* border: 2px solid blueviolet; */
+            width: 240px;
+
+        }
+        .column5 ul {
+            display: flex;
+            flex-direction: column;
+            row-gap: 13px;
+            padding: 20px;
+            
+        }
+        .column5 ul li {
+            font-size:12px;
+            font-weight: 500;
+        }
+        .column5 ul li:nth-child(-n + 2) {
+            color: orangered;
+            font-size: 16px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div><svg height="60PX" viewBox="-2.22 -2.4 358.9 249.3" width="60PX" xmlns="http://www.w3.org/2000/svg">
+                <path
+                    d="m74.38 21.8c7-8.4 14.6-17.4 25.4-20.8 12.1-3.2 22.4 6.3 30 14.4 19.9 22.8 34.4 49.7 47.9 76.7 7.3-16.4 16.4-32 25.8-47.2 9-13.8 18.3-27.8 31.3-38.3 6-4.6 14.3-9 21.8-5.1 10.6 5.6 18.6 14.9 26.1 24 15.9 20.5 28.4 43.4 39.7 66.7 14.1 30 26.3 61.3 31.4 94.2 1.5 15.2 2.9 32.3-6.3 45.6-7.1 10.4-20.6 14-32.6 11.9-10.4-3.7-19.5-10.5-26.3-19.1-16.2-20-25.8-44.2-34.7-68.1-1.3-4.2-2.9-8.3-4.3-12.4-.9 4.2-2.1 8.4-3.5 12.5-9.1 24.2-18.8 48.9-35.5 69-6.7 8.2-15.5 14.5-25.5 18.1-14.4 3-28.3-4.5-37.6-15.1-18.2-19.8-28.3-45.4-37.6-70.3-1.8-5.1-3.6-10.2-4.9-15.5-1.5 5.3-3.3 10.6-5.2 15.7-8.4 22.9-18 46-33.2 65.3-8.3 9.9-19.1 19.6-32.6 20.3-12.5 1.1-24.6-7-29.4-18.4-6.8-15.8-4.8-33.6-1.8-50.1 6.5-31.5 18.5-61.6 32.7-90.3 10.9-22.3 23.3-44.1 38.9-63.7m7.1 7c-15.4 19.6-27.7 41.6-38.7 63.9-13.7 28.9-26.1 59-31.4 90.7-1.9 8.8-1.9 17.9-1 26.8 1.1 8.4 4.4 17.4 12.1 21.7 7.4 4.3 16.9 2.6 23.6-2.2 12-8.4 20-21.2 26.9-33.9 14.8-28.3 24.5-59 31.8-89.9 7.8 31.7 17.6 63.3 33.2 92.2 6.2 10.7 12.7 21.8 22.8 29.2 5.1 4.6 11.8 7.8 18.8 7 7.8-.8 14.3-5.8 19.8-11.1 9.3-9.6 16.1-21.4 22.1-33.2 12.8-26.2 21.6-54.2 28.5-82.4 8.6 34.2 19.3 68.5 37.7 98.9 6.9 10.6 15 21.6 27.1 26.6 8.5 3.5 19.3.4 24.2-7.5 5.9-9.5 6.4-21.3 5.5-32.1-1.2-17.5-6.3-34.5-11.9-51.1-11.2-32-25.9-62.8-43.8-91.5-8.3-12.8-16.9-25.7-28.5-35.9-4.1-3.6-10.2-7.1-15.4-3.5-10 6.1-16.9 15.8-23.9 25-17 24.2-31 50.6-42.5 77.8-.3.4-1.1 1.2-1.4 1.6-1-3.1-2-6.1-3.3-9.1-11.8-25.5-24.9-50.6-41.6-73.2-5.7-7.5-11.6-15.1-19.3-20.6-3.3-2.3-7.7-4.4-11.6-2.4-8.3 3.8-14.1 11.3-19.8 18.2"
+                    fill="#fefefe" />
+                <path
+                    d="m81.48 28.8c5.7-6.9 11.6-14.3 19.9-18.1 3.9-2 8.3 0 11.6 2.4 7.7 5.5 13.6 13.2 19.3 20.6 16.6 22.7 29.8 47.7 41.6 73.2 1.4 2.9 2.4 6 3.3 9.1-15.4-26.1-29.4-53.2-48.6-76.8-5.6-6.6-11.5-13.6-19.6-17.1-4.6-2-9.3.6-13.1 3.1-13.8 11.6-24 26.7-33.6 41.7-22.6 36-39.6 75.5-50.8 116.5 5.3-31.7 17.6-61.8 31.4-90.7 10.9-22.3 23.2-44.3 38.6-63.9m163.4-17.4c5.2-3.6 11.3-.1 15.4 3.5 11.6 10.1 20.2 23 28.5 35.9 17.9 28.8 32.7 59.5 43.8 91.5 5.6 16.6 10.7 33.5 11.9 51.1-1.9-12.2-5.1-24.2-9.2-35.8-10.6-31.9-25.3-62.5-43.1-91-7.8-12.2-16.1-24.3-26.1-34.7-4-4-8.3-8.2-13.8-10-4.3-1.3-8.2 1.7-11.7 3.8-9.3 7.3-16.5 16.7-23.4 26.2-12.2 17.3-23.1 35.5-32.9 54.2-1.6 3-3.6 5.8-5.8 8.3 11.5-27.3 25.5-53.6 42.5-77.8 7-9.3 14-19.1 23.9-25.2"
+                    fill="#9e242e" />
+                <path
+                    d="m95.88 25.2c3.8-2.5 8.5-5.1 13.1-3.1 8.1 3.5 14 10.5 19.6 17.1 19.2 23.6 33.2 50.7 48.5 76.8-9.6 27.3-21 54.7-21.7 84-.5 9.4 2 18.6 5.5 27.3-10.1-7.4-16.7-18.5-22.8-29.2-15.5-28.9-25.4-60.4-33.2-92.2-5.6-26.4-10.8-53.4-9-80.7"
+                    fill="#ff912e" />
+                <path
+                    d="m240.68 25.6c3.5-2.1 7.4-5.1 11.7-3.8 5.5 1.8 9.8 6 13.8 10 10 10.5 18.3 22.5 26.1 34.7 17.8 28.5 32.5 59.1 43.1 91 4.2 11.6 7.3 23.6 9.2 35.8.9 10.8.4 22.6-5.5 32.1-4.9 8-15.6 11-24.2 7.5-12.1-4.9-20.2-16-27.1-26.6-18.4-30.3-29.1-64.6-37.7-98.9-5.8-26.7-11.2-54.1-9.4-81.8m-178.4 41.3c9.6-15 19.8-30.1 33.6-41.7-1.8 27.2 3.4 54.3 9.1 80.7-7.3 31-17.1 61.6-31.8 89.9-6.9 12.7-14.9 25.5-26.9 33.9-6.7 4.8-16.2 6.5-23.6 2.2-7.7-4.3-11-13.4-12.1-21.7-1-8.9-.9-18 1-26.8 11-41 28.1-80.5 50.7-116.5"
+                    fill="#f41cb2" />
+                <path
+                    d="m217.28 51.8c6.9-9.5 14.1-18.9 23.4-26.2-1.8 27.6 3.6 55.1 9.5 81.9-6.9 28.3-15.8 56.2-28.5 82.4-6 11.9-12.8 23.6-22.1 33.2-5.4 5.3-12 10.3-19.8 11.1-7 .8-13.7-2.4-18.8-7-3.5-8.7-6-17.9-5.5-27.3.7-29.3 12.1-56.8 21.7-84 .3-.4 1.1-1.2 1.4-1.6 2.2-2.6 4.2-5.3 5.8-8.3 9.9-18.7 20.7-36.9 32.9-54.2"
+                    fill="#f25511" />
+            </svg></div>
+        <div class="select">
+            <ul>
+                <li class="men"><a href="">MEN</a>
+                    <div class="dropdown">
+                        <div class="column1">
+                            <ul>
+                                <li>Topwear</li>
+                                <li>T-Shirts</li>
+                                <li>Casual Shirts</li>
+                                <li>Formal Shirts</li>
+                                <li>Sweetshirts</li>
+                                <li>Jackets</li>
+                                <li>Blazers & Coats</li>
+                                <li>Suits</li>
+                                <li>Rain Jackets</li>
+                            </ul>
+                            <ul>
+                                <li>Indian & Festive Wear</li>
+                                <li>Kurtas & Kurta sets</li>
+                                <li>Sherwanis</li>
+                                <li>Nehru Jackets</li>
+                                <li>Dhotis</li>
+                            </ul>
+                            </div>
+
+                            <div class="column2">
+                                <ul>
+                                    <li>Bottomwear</li>
+                                    <li>Jeans</li>
+                                    <li>Casual Trousers</li>
+                                    <li>Shorts</li>
+                                    <li>Track Pants & Joggers</li>
+                                    <li>Formal Trousers</li>
+                                </ul>
+                                <ul>
+                                    <li>Innerwear & Sleepwear</li>
+                                    <li>Briefs & Trunks</li>
+                                    <li>Boxers</li>
+                                    <li>Vests</li>
+                                    <li>Sleepwear & Loungewear</li>
+                                    <li>Thermals</li>
+                                </ul>
+                                <ul>
+                                    <li>Plus Size</li>
+                                </ul>
+                            </div>
+                            <div class="column3">
+                                <ul>
+                                    <li>Footwear</li>
+                                    <li>Casual Shoes</li>
+                                    <li>Sport Shoes</li>
+                                    <li>Formal Shoes</li>
+                                    <li>Sneakers</li>
+                                    <li>Sandals & Floaters</li>
+                                    <li>Flip Flop</li>
+                                    <li>snocks</li>
+                                </ul>
+                                <ul>
+                                    <li>Personal Care & Grooming</li>
+                                </ul>
+                                <ul>
+                                    <li>Sunglasses</li>
+                                </ul>
+                                <ul>
+                                    <li>Watches</li>
+                                </ul>
+                            </div>
+                            <div class="column4">
+                                <ul>
+                                    <li>Sports & Active Wear</li>
+                                    <li>Sports Shoes</li>
+                                    <li>Sports Sandals</li>
+                                    <li>Active T-Shirts</li>
+                                    <li>Track Pants & Shorts</li>
+                                    <li>Tracksuits</li>
+                                    <li>Jackets & Sweatshirts</li>
+                                    <li>Sports Accessories</li>
+                                    <li>Swimwear</li>
+                                </ul>
+                                <ul>
+                                    <li>Gadgets</li>
+                                    <li>Smart Wearables</li>
+                                    <li>Fitness</li>
+                                    <li>Headphones</li>
+                                    <li>Speakers</li>
+                                </ul>
+                            </div>
+                            <div class="column5">
+                                <ul>
+                                    <li>Fashion Accessories</li>
+                                    <li>Wallets</li>
+                                    <li>Belts</li>
+                                    <li>Perfumers & Body Mists</li>
+                                    <li>Trimmers</li>
+                                    <li>Deodorants</li>
+                                    <li>Ties, Cufflinks & Pockets</li>
+                                    <li>Squarea</li>
+                                    <li>Accessory</li>
+                                    <li>Caps & Hats</li>
+                                    <li>Muffkers, Scarves & Gloves</li>
+                                    <li>Phone Cases</li>
+                                    <li>Ring & Wristwear</li>
+                                    <li>Helmets</li>
+                                </ul>
+                                <ul>
+                                    <li>Bags & Backpacks</li>
+                                    <li>Luggages & Trollys</li>
+                                </ul>
+                            </div>
+                        
+                    </div>
+                </li>
+                <li><a href="">WOMEN</a></li>
+                <li><a href="">KIDS</a></li>
+                <li><a href="">HOME</a></li>
+                <li><a href="">BEAUTY</a></li>
+                <li><a href="">GENZ</a></li>
+                <li><a href="">STUDIO</a><sup class="sup">New</sup></li>
+            </ul>
+        </div>
+        <div class="search">
+            <div
+                style="background-color: #F5F5F6; border-radius: 10px;  padding-left : 7px; padding-top: 6px; border-top-right-radius: 2px; border-bottom-right-radius: 2px;">
+                <svg width="25px" height="25px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                    <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                    <g id="SVGRepo_iconCarrier">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M17.0392 15.6244C18.2714 14.084 19.0082 12.1301 19.0082 10.0041C19.0082 5.03127 14.9769 1 10.0041 1C5.03127 1 1 5.03127 1 10.0041C1 14.9769 5.03127 19.0082 10.0041 19.0082C12.1301 19.0082 14.084 18.2714 15.6244 17.0392L21.2921 22.707C21.6828 23.0977 22.3163 23.0977 22.707 22.707C23.0977 22.3163 23.0977 21.6828 22.707 21.2921L17.0392 15.6244ZM10.0041 17.0173C6.1308 17.0173 2.99087 13.8774 2.99087 10.0041C2.99087 6.1308 6.1308 2.99087 10.0041 2.99087C13.8774 2.99087 17.0173 6.1308 17.0173 10.0041C17.0173 13.8774 13.8774 17.0173 10.0041 17.0173Z"
+                            fill="#949494"></path>
+                    </g>
+                </svg>
+            </div><label for="search"></label><input id="search" type="text"
+                placeholder=" Search for product ,brand and more">
+        </div>
+        <div class="last">
+            <div class="profile">
+                <div><svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="#000000">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <title>profile_round [#1342]</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs> </defs>
+                            <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="Dribbble-Light-Preview" transform="translate(-140.000000, -2159.000000)"
+                                    fill="#000000">
+                                    <g id="icons" transform="translate(56.000000, 160.000000)">
+                                        <path
+                                            d="M100.562548,2016.99998 L87.4381713,2016.99998 C86.7317804,2016.99998 86.2101535,2016.30298 86.4765813,2015.66198 C87.7127655,2012.69798 90.6169306,2010.99998 93.9998492,2010.99998 C97.3837885,2010.99998 100.287954,2012.69798 101.524138,2015.66198 C101.790566,2016.30298 101.268939,2016.99998 100.562548,2016.99998 M89.9166645,2004.99998 C89.9166645,2002.79398 91.7489936,2000.99998 93.9998492,2000.99998 C96.2517256,2000.99998 98.0830339,2002.79398 98.0830339,2004.99998 C98.0830339,2007.20598 96.2517256,2008.99998 93.9998492,2008.99998 C91.7489936,2008.99998 89.9166645,2007.20598 89.9166645,2004.99998 M103.955674,2016.63598 C103.213556,2013.27698 100.892265,2010.79798 97.837022,2009.67298 C99.4560048,2008.39598 100.400241,2006.33098 100.053171,2004.06998 C99.6509769,2001.44698 97.4235996,1999.34798 94.7348224,1999.04198 C91.0232075,1998.61898 87.8750721,2001.44898 87.8750721,2004.99998 C87.8750721,2006.88998 88.7692896,2008.57398 90.1636971,2009.67298 C87.1074334,2010.79798 84.7871636,2013.27698 84.044024,2016.63598 C83.7745338,2017.85698 84.7789973,2018.99998 86.0539717,2018.99998 L101.945727,2018.99998 C103.221722,2018.99998 104.226185,2017.85698 103.955674,2016.63598"
+                                            id="profile_round-[#1342]"> </path>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg></div>
+                <div>Profile</div>
+            </div>
+            <div class="wishlist">
+                <div><svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M12 6.00019C10.2006 3.90317 7.19377 3.2551 4.93923 5.17534C2.68468 7.09558 2.36727 10.3061 4.13778 12.5772C5.60984 14.4654 10.0648 18.4479 11.5249 19.7369C11.6882 19.8811 11.7699 19.9532 11.8652 19.9815C11.9483 20.0062 12.0393 20.0062 12.1225 19.9815C12.2178 19.9532 12.2994 19.8811 12.4628 19.7369C13.9229 18.4479 18.3778 14.4654 19.8499 12.5772C21.6204 10.3061 21.3417 7.07538 19.0484 5.17534C16.7551 3.2753 13.7994 3.90317 12 6.00019Z"
+                                stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </svg></div>
+                <div>Wishlist</div>
+            </div>
+            <div class="bag">
+                <div><svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M9 11V6C9 4.34315 10.3431 3 12 3C13.6569 3 15 4.34315 15 6V10.9673M10.4 21H13.6C15.8402 21 16.9603 21 17.816 20.564C18.5686 20.1805 19.1805 19.5686 19.564 18.816C20 17.9603 20 16.8402 20 14.6V12.2C20 11.0799 20 10.5198 19.782 10.092C19.5903 9.71569 19.2843 9.40973 18.908 9.21799C18.4802 9 17.9201 9 16.8 9H7.2C6.0799 9 5.51984 9 5.09202 9.21799C4.71569 9.40973 4.40973 9.71569 4.21799 10.092C4 10.5198 4 11.0799 4 12.2V14.6C4 16.8402 4 17.9603 4.43597 18.816C4.81947 19.5686 5.43139 20.1805 6.18404 20.564C7.03968 21 8.15979 21 10.4 21Z"
+                                stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        </g>
+                    </svg></div>
+                <div>Bag</div>
+            </div>
+        </div>
+
+    </nav>
+
+
+</body>
+
+</html>
