@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation </title>
+    <style>
+        .parent{
+            perspective: 500px;
+
+        }
+        .child{
+
+        }
+        @keyframes spin{
+            20%{
+                transform:translateX(100px);
+                background-color: purple;
+                
+            }
+            40%{
+                transform: translateY(100px);
+                background-color: rgb(0, 174, 255);
+            }
+            60%{
+                transform:translateX(-100px);
+
+            }
+            80%{
+                transform: translateY(-100px);
+                background-color: rgb(2, 216, 202);
+            }
+            /* 100%{
+                transform: translateZ(500px);
+                background-color: black;
+            } */
+            
+        } 
+        .animate{
+            height: 300px;
+            width: 200px;
+            /* margin:auto;
+            padding: auto; */
+            background-color: rgb(183, 168, 5);
+            border: 10px solid rgb(250, 7, 19);
+            animation-name: spin;
+            animation-duration: 2s;
+            animation-iteration-count: infinite;
+            
+
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child"></div>
+    </div>
+    <div class="animate">
+        Hi, My Name is daksh khandelwal.
+        I am Student Of Coding Gita.
+        I can Design Figma Styles.
+
+    </div>
+    
+</body>
+</html>
