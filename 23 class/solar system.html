@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+body {
+    background-color: white;
+    color: white;
+    text-align: center;
+    font-family: Arial;
+}
+
+h1 {
+    margin-top: 30px;
+}
+
+.solar-system {
+    width: 500px;
+    height: 500px;
+    position: relative;
+    margin: 50px auto;
+}
+
+.sun {
+    width: 60px;
+    height: 60px;
+    background-color: orange;
+    border-radius: 50%;
+    position: absolute;
+    top: 220px;
+    left: 220px;
+    box-shadow: 0 0 30px yellow;
+}
+
+.orbit {
+    border: 1px solid gray;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: move 8s linear infinite;
+}
+
+.mercury-orbit {
+    width: 100px;
+    height: 100px;
+}
+
+.venus-orbit {
+    width: 170px;
+    height: 170px;
+    animation-duration: 12s;
+}
+
+.earth-orbit {
+    width: 250px;
+    height: 250px;
+    animation-duration: 18s;
+}
+.mercury, .venus, .earth {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    right: -7px;
+    transform: translateY(-50%);
+}
+
+.mercury {
+    background-color: gray;
+}
+
+.venus {
+    background-color: gold;
+}
+
+.earth {
+    background-color: dodgerblue;
+}
+
+@keyframes move {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+    </style>
+    </head>
+<body>
+
+    <h1>Our Solar System</h1>
+
+    <div class="solar-system">
+        <div class="sun"></div>
+
+        <div class="orbit mercury-orbit">
+            <div class="mercury"></div>
+        </div>
+
+        <div class="orbit venus-orbit">
+            <div class="venus"></div>
+        </div>
+
+        <div class="orbit earth-orbit">
+            <div class="earth"></div>
+        </div>
+    </div>
+
+</body>
+</html>
