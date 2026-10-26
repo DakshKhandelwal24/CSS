@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grid</title>
+    <style>
+        *{
+            border:2px solid blue
+        }
+        .container {
+            display: grid;
+            height: 600px;
+            width: 600px;
+            border: 2px solid brown;
+            grid-template-columns: 100px 200px 300px ;
+            grid-template-rows: 100px 300px 50px;
+            grid-template-areas: "header" "body" ;
+        }
+
+        .sub {
+            /* height: 60px;
+            width: 60px; */
+            border: 2px solid blue;
+
+        }
+        .header{
+            grid-area:header;
+        }
+        .body{
+            grid-area:body;
+        }
+        .place{
+            
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">header</div>
+        <div class="body">body </div>
+        <div class="cont">cont</div>
+        <div class="place">place</div>
+        <div class="adje"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+        <div class="sub"></div>
+    </div>
+</body>
+
+</html>`
